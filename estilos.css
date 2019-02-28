@@ -144,3 +144,61 @@ footer{
 #slider img {
     width: 100%;
 }
+#slider .caption {
+    position:absolute;
+    color: white;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+    
+}
+#slider .caption h3{
+    font-size: 75px;
+}   
+li div.circulos{
+    width:15px;
+    height:15px;
+    background: #c6c6c6;
+    border-radius: 50%;
+    margin-left:10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+li div.circulos:hover{
+    background: #235e3d;
+}
+
+.pagination{
+position:absolute;
+left:45%;
+}
+
+.left,.right{
+
+position:absolute; 
+top: 0;
+height: 100%;
+display: flex;
+align-items: center;
+font-size: 35px;
+color: white;
+}
+.left{
+    left: 400px;
+    cursor: pointer;
+}
+.right{
+    right:400px;
+    cursor: pointer;
+}
+
+.active{
+    background: #235e3d;
+}
