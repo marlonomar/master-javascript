@@ -1,0 +1,146 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+.clearfix{
+    float: none;
+    clear: both;
+}
+body{
+    background: url('multimedia/hojas.jpg');
+    background-size: cover;
+}
+
+#global{
+    width: 65%;
+    background: white;
+    margin: 0px auto;
+    margin-top: 30px;
+    padding: 20px;
+    box-shadow: 0px 0px 15px black;
+
+}
+
+#logo{
+    font-family: "Verdana","Arial";
+    font-size: 30px;
+    letter-spacing: 3px;
+    background: #235e3d;
+    color:white;
+    text-align: center;
+    width: 390px;
+    height: 75px;
+    float: left;
+    margin-bottom: 30px;
+    line-height: 80px;
+}
+
+#nav{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #333;
+    width: 100%;
+    margin-bottom: 20px;
+    
+}
+
+#nav ul{
+    line-height: 46px;
+
+}
+
+#nav ul li{
+    height: 46px;
+    display: inline-block;
+    transition: all 300ms;
+}
+
+#nav ul li:hover{
+    background: #235e3d;
+}
+
+#nav a{
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding-left:30px;
+    padding-right: 30px;
+
+}
+
+#post{
+    width: 60%;
+    float: left;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.post h2{
+    font-size: 30px;
+    color: #333;
+}
+
+.post .date {
+    display: block;
+    color: gray;
+    margin-top:5px;
+}
+
+.post p{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    line-height: 25px;
+}
+
+.btn-success{
+    float: right;
+}
+
+#sidebar{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 31%;
+    float: right;
+
+}
+
+#sidebar h4{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+
+}
+
+#sidebar img {
+    width: 100%;
+}
+
+#sidebar p{
+    font-size: 10px;
+    text-align: justify;
+}
+
+input[type='text'],input[type='password'],input[type='email']{
+    margin-bottom: 10px;
+}
+
+footer{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    height: 47px;
+    background: rgba(51, 51, 51,0.70);
+    margin: 0px auto;
+    width: 65%;
+    padding-left:20px;
+    padding-right:20px;
+    text-align: center;
+}
+
+#slider{
+    width: 100%;
+}
+
+#slider img {
+    width: 100%;
+}
