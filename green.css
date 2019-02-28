@@ -1,0 +1,23 @@
+body{
+    background: url('multimedia/hojas.jpg');
+    background-size: cover;
+}
+
+#logo{
+
+    background: #235e3d;
+    
+}
+
+#nav ul li:hover{
+    background: #235e3d;
+}
+
+li div.circulos:hover{
+    background: #235e3d;
+}
+
+.btn{
+    background: #235e3d;
+    color: white;
+}

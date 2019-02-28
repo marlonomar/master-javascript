@@ -1,0 +1,23 @@
+body{
+    background: url('multimedia/otono.jpg');
+    background-size: cover;
+}
+
+#logo{
+
+    background: #870E0E;
+    
+}
+
+#nav ul li:hover{
+    background: #870E0E;
+}
+
+li div.circulos:hover{
+    background: #870E0E;
+}
+
+.btn{
+    background: #870E0E;
+    color: white;
+}

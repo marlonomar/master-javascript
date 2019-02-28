@@ -1,0 +1,24 @@
+body{
+    background: url('multimedia/invierno.jpg');
+    background-size: cover;
+}
+
+#logo{
+
+    background: #006997;
+    
+}
+
+#nav ul li:hover{
+    background: #006997;
+}
+
+li div.circulos:hover{
+    background: #006997;
+}
+
+
+.btn{
+    background: #006997;
+    color: white;
+}
