@@ -67,4 +67,23 @@ $(document).ready(function(){
         $("#post").append(posts);
     })
    }
+   theme()
+   function theme(){
+       $("div.temas div.tema").on('click',function(){
+            let tema= $(this);
+            console.log(tema);
+            if(tema.hasClass('invierno')){
+                $("#themes").attr("href","blue.css");
+            }
+            if(tema.hasClass('otono')){
+                $("#themes").attr("href","red.css");
+            }
+            if(tema.hasClass('verano')){
+                $("#themes").attr("href","green.css");
+            }
+            if(tema.hasClass('primavera')){
+                $("#themes").attr("href","pink.css");
+            }
+       });
+   }
 })

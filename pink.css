@@ -1,0 +1,23 @@
+body{
+    background: url('multimedia/primavera.jpg');
+    background-size: cover;
+}
+
+#logo{
+
+    background: #FF8686;
+    
+}
+
+#nav ul li:hover{
+    background: #FF8686;
+}
+
+li div.circulos:hover{
+    background: #FF8686;
+}
+
+.btn{
+    background: #FF8686;
+    color: white;
+}
