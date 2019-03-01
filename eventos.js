@@ -25,6 +25,7 @@ $(document).ready(function(){
        $("ul li div").hide();
        $("ul li div:nth-child("+pos+")").show()
    }
+   //informacion en json
    post ()
    function post (){
     var post =[
@@ -53,7 +54,7 @@ $(document).ready(function(){
          
      },
     ];
- 
+    //agregar articulos
     post.forEach((item,index) => {
         var posts = `
         <article class="post">
@@ -67,6 +68,7 @@ $(document).ready(function(){
         $("#post").append(posts);
     })
    }
+   //cambiar tema
    theme()
    function theme(){
        $("div.temas div.tema").on('click',function(){
@@ -85,5 +87,31 @@ $(document).ready(function(){
                 $("#themes").attr("href","pink.css");
             }
        });
+   }
+   // scroll
+   subir()
+   function subir(){
+       $(".subir").on('click',function(){
+           event.preventDefault();
+           $("html,body").animate({
+                scrollTop: 0
+           },1000);
+           return false;
+       })
+   }
+   //login
+   login()
+   function login(){
+       $("input[type='submit'].btn").on('click',function(){
+        let nombre = $("#nombre").val();
+        let email = $("#email").val();
+        let clave = $("#clave").val();
+        localStorage.setItem('nombre',nombre)
+        localStorage.setItem('email',email)
+        localStorage.setItem('clave',clave)
+        $("div#about p").hide();
+        $("div.formulario").hide();
+        $("div#about").append("<button class='btn'>cerrar sesion</button><br><h2>bienvenido: "+nombre+"</h2>")
+       })
    }
 })
