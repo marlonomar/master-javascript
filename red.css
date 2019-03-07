@@ -23,5 +23,11 @@ li div.circulos:hover{
 }
 
 .active_li{
-    background: #870E0E;
+    background: #870E0E !important;
+}
+
+#acordeon h3{
+  
+    background: #870E0E !important;
+    color: white;
 }
