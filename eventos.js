@@ -2,28 +2,59 @@ $(document).ready(function(){
 
     ocultar_slide()
     function ocultar_slide(){
-        $("ul li div").hide();
-        $("ul li div").eq(0).show();
-        $("ul li div div").eq(0).show();
+        $("li.slider").hide();
+        $("li.slider:nth-child(1)").show();
     }
 
     agregar_icono()
    function agregar_icono(){
         var circulos = $("#slider ul li img").length;
         for(i=1;i<=circulos;i++){
-             $('ol.pagination').append("<li><div class='circulos'></div></li>")
+             $('ol.pagination').append("<li><div class='circulos' index="+[i]+"></div></li>")
         }
    }
+   pagination_auto()
+   function pagination_auto(){
+       let imgItems = $("li div.circulos").length;
+       let imgPos =1;
 
-   $(" li div.circulos").click(pagination);
-   //$(".right div").click(nextSlider);
-   //$(".left div").click(prevSlider);
+       $("div.left").on('click',function(){
+            imgPos--
+           if(imgPos < 1){
+            imgPos = imgItems;
+             }
+            $("li.slider").hide();
+            $("li.slider:nth-child("+imgPos+")").fadeIn();
+       })
 
+       function slide(){
+        imgPos++
+        if(imgPos > imgItems){
+            imgPos =1;
+         }
+        $("li.slider").hide();
+        $("li.slider:nth-child("+imgPos+")").fadeIn();
+       }
+
+       $("div.right").on('click',function(){
+        slide()
+        })
+
+        setInterval(() => {
+            slide()
+        }, 10000);
+    
+   }
+  
+   pagination()
    function pagination(){
-       var pos = $(this).index();
-       console.log(pos)
-       $("ul li div").hide();
-       $("ul li div:nth-child("+pos+")").show()
+    $(" li div.circulos").click(function(){
+        $("li div.circulos").removeClass('active_li')
+        var pos = $(this).attr('index');
+        $("li.slider").hide();
+        $("li.slider:nth-child("+pos+")").fadeIn();
+        $(this).addClass('active_li');
+   });
    }
    //informacion en json
    post ()
@@ -112,6 +143,12 @@ $(document).ready(function(){
         $("div#about p").hide();
         $("div.formulario").hide();
         $("div#about").append("<button class='btn'>cerrar sesion</button><br><h2>bienvenido: "+nombre+"</h2>")
+       })
+   }
+   reloj ()
+   function reloj (){
+       $("#nav ul li").on('click',function(){
+            $("#contenido,#slider").hide();
        })
    }
 })

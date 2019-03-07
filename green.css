@@ -1,5 +1,5 @@
 body{
-    background: url('multimedia/hojas.jpg');
+    background: url('multimedia/verano.jpg');
     background-size: cover;
 }
 
@@ -20,4 +20,8 @@ li div.circulos:hover{
 .btn{
     background: #235e3d;
     color: white;
+}
+
+.active_li{
+    background: #235e3d;
 }

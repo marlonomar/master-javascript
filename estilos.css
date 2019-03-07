@@ -4,6 +4,8 @@
     padding: 0px;
     list-style: none;
 }
+
+
 .clearfix{
     float: none;
     clear: both;
@@ -17,6 +19,8 @@
     margin-top: 30px;
     padding: 20px;
     box-shadow: 0px 0px 15px black;
+    min-height:1000px;
+    
 
 }
 
@@ -148,7 +152,7 @@ footer{
  h3.epoca{
     font-size: 101px;
     position: relative;
-    top:238px;
+    top:278px;
     color: white;
 }
 li div.circulos{
@@ -174,15 +178,21 @@ left:45%;
 }
 .left{
     color: white;
-    font-size: 30px;
+    font-size: 65px;
     float: left;
     cursor: pointer;
+    position: relative;
+    top: -323px;
+    left:36px;
 }
 .right{
     color: white;
-    font-size: 30px;
+    font-size: 65px;
     float: right;
     cursor: pointer;
+    position: relative;
+    top: -323px;
+    right:36px;
 }
 
 .active{

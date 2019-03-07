@@ -21,3 +21,7 @@ li div.circulos:hover{
     background: #FF8686;
     color: white;
 }
+
+.active_li{
+    background: #FF8686;
+}
