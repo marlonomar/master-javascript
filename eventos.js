@@ -146,16 +146,28 @@ $(document).ready(function(){
    function login(){
        
        $("input[type='submit'].btn").on('click',function(){
-        let nombre = $("#nombre").val();
         let email = $("#email").val();
         let clave = $("#clave").val();
-        localStorage.setItem('nombre',nombre)
-        localStorage.setItem('email',email)
-        localStorage.setItem('clave',clave)
+        let usuario = localStorage.getItem('mail');
+        let key = localStorage.getItem('key');
+        let nombre = localStorage.getItem('name');
+
+        if(email == usuario && clave == key){
         $("div#about p").hide();
         $("div.formulario").hide();
-        $("div#about").append("<button class='btn' id='cerrar'>cerrar sesion</button><br><h2>bienvenido: "+nombre+"</h2>");
+        $("div#about").append("<button class='btn' id='cerrar'>cerrar sesion</button><br><h2>bienvenido:"+nombre+"</h2>");
+        }else{
+            alert("email o contrasena equivocados")
+        }
        })
+       
+   }
+   cerrar_sesion()
+   function cerrar_sesion(){
+    $("button#cerrar").on('click',function(){
+        localStorage.clear();
+        location.reload();
+    })
    }
    //navegador
    nav ()
@@ -228,15 +240,16 @@ $(document).ready(function(){
                 <input class="form-control" type="email" placeholder="ingrese su email" id="mail">
                 <input class="form-control" type="password" placeholder="cree una contrasena" id="key">
                 <input class="form-control" type="number" placeholder="ingrese su edad" id="edad">
-                <select class="form-control">
+                <select class="form-control" id="sexo">
                 <option value="null">Sexo</option>
-                <option value="nombre">Hombre</option>
+                <option value="hombre">Hombre</option>
                 <option value="mujer">Mujer</option>
                 </select>
-                <button class="btn" id="btn-form">Registrar</button>
+                <button class="btn" id="btn_form">Registrar</button>
            </div>
          `;
          $("#cont").append(regis);
+         ficha_registro()
        }
        $("#nav ul li").click(function(){
         let li = $(this).text();
@@ -258,6 +271,39 @@ $(document).ready(function(){
              registro()
          }
      })
+   }
+   //ficha de registro
+   function ficha_registro(){
+       $("button#btn_form").on('click',function(){
+           var nombre = $("#name").val();
+           var apellido = $("#apellido").val();
+           var cpf = $("#cpf").val();
+           var edad = $("#edad").val();
+           var sexo = $("#sexo").val();
+           var mail = $("#mail").val();
+           var key = $("#key").val();
+           localStorage.setItem('name',nombre);
+           localStorage.setItem('mail',mail);
+           localStorage.setItem('key',key);
+           localStorage.setItem('sexo',sexo);
+           $("#formulario_registro").empty();
+           var ficha = `
+                <h2 id='ficha'>Ficha de Registro</h2>
+                <h3 id='ficha_name'>Nombre: ${nombre}</h3>
+                <h3 id='ficha_apellido'>Apellido: ${apellido}</h3>
+                <h3 id='ficha_cpf'>CPF: ${cpf}</h3>
+                <h3 id='ficha_edad'>Edad: ${edad}</h3>
+                <h3 id='ficha_sexo'>Sexo: ${sexo}</h3>
+           `;
+           $("#formulario_registro").append("<img src='carnet.jpg' id='carnet'>");
+           $("#formulario_registro").append(ficha)
+           if(sexo =="hombre"){
+            $("#formulario_registro").append("<img class='ficha_avatar'src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSioCg7de-8aJQjmWHd5xVtioOHjI1DKU7-3Mh0WpbA6h6WEej2BQ'>");
+           }if(sexo =="mujer"){
+            $("#formulario_registro").append("<img class='ficha_avatar'src='https://cdn.pixabay.com/photo/2014/04/02/14/10/female-306407__340.png'>");   
+           }
+
+       })
    }
 
 // ----------------------------------------------------------------------------------------------------------------------
