@@ -1,11 +1,11 @@
 $(document).ready(function(){
-
+    //ocultar sliders
     ocultar_slide()
     function ocultar_slide(){
         $("li.slider").hide();
         $("li.slider:nth-child(1)").show();
     }
-
+    //iconos de paginacion
     agregar_icono()
    function agregar_icono(){
         var circulos = $("#slider ul li img").length;
@@ -13,6 +13,7 @@ $(document).ready(function(){
              $('ol.pagination').append("<li><div class='circulos' index="+[i]+"></div></li>")
         }
    }
+   //paginacion automatica
    pagination_auto()
    function pagination_auto(){
        let imgItems = $("li div.circulos").length;
@@ -50,7 +51,7 @@ $(document).ready(function(){
         }, 50000);
     
    }
-  
+  //paginacion manual
    pagination()
    function pagination(){
     $(" li div.circulos").click(function(){
@@ -156,66 +157,61 @@ $(document).ready(function(){
         $("div#about").append("<button class='btn' id='cerrar'>cerrar sesion</button><br><h2>bienvenido: "+nombre+"</h2>");
        })
    }
-   
+   //navegador
    nav ()
    function nav (){
-       $("#nav ul li").eq(0).click(function(){
+
+    $("#nav ul li").click(function(){
+        let li = $(this).text();
+        if(li == 'INICIO'){
             location.reload();
-       })
-
-       $("#nav ul li").eq(2).on('click',function(){
-            $("#contenido,#slider").hide();
-            var texto = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation"
-            var contenido =`
-            <div id="acordeon">
-            <h3>quienes somos?</h3>
-            <div class='contenido_acordeon'>
-                <p>${texto}</p>
-                <p>${texto}</p>
-                <p>${texto}</p>
-            </div>
-            <h3>que queremos?</h3>
-            <div class='contenido_acordeon'>
+        }
+        if(li == 'RELOJ'){
+         intervalo = setInterval(() => {
+             reloj() 
+             },1000);
+         }else{
+             clearInterval(intervalo)
+         }
+         if(li == 'SOBRE MI'){
+            sobreMi()
+         }
+     })
+       function sobreMi(){
+        $("#contenido,#slider").hide();
+        var texto = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation"
+        var contenido =`
+        <div id="acordeon">
+        <h3>quienes somos?</h3>
+        <div class='contenido_acordeon'>
             <p>${texto}</p>
             <p>${texto}</p>
             <p>${texto}</p>
-            </div>
-            <h3>a donde vamos?</h3>
-            <div class='contenido_acordeon'>
-            <p>${texto}</p>
-            <p>${texto}</p>
-            <p>${texto}</p>
-            </div>
         </div>
-            `;
-            $("#cont").empty();
-            $("#cont").append(contenido);
-            acordeon()
-       })
-
-       
-
-       $("#nav ul li").click(function(){
-           let li = $(this).text();
-           
-           if(li == 'RELOJ'){
-            intervalo = setInterval(() => {
-                reloj() 
-                },1000);
-            }else{
-                clearInterval(intervalo)
-            }
-        })
-
-       
-       function acordeon(){
+        <h3>que queremos?</h3>
+        <div class='contenido_acordeon'>
+        <p>${texto}</p>
+        <p>${texto}</p>
+        <p>${texto}</p>
+        </div>
+        <h3>a donde vamos?</h3>
+        <div class='contenido_acordeon'>
+        <p>${texto}</p>
+        <p>${texto}</p>
+        <p>${texto}</p>
+        </div>
+    </div>
+        `;
+        function acordeon(){
             $("#acordeon div").hide()
             $("#acordeon h3").on('click',function(){
                  $(this).siblings("div").toggle('slow')
             })
        }
-
-       
+        $("#cont").empty();
+        $("#cont").append(contenido);
+        acordeon()
+       }
        function reloj(){
 
            
@@ -225,7 +221,9 @@ $(document).ready(function(){
         let segundos = data.getSeconds();
 
         var reloj =`
-            <h1>${hora} : ${minutos} :${segundos}</h1>
+            <div id="reloj_digital">
+                <h1>${hora} : ${minutos} :${segundos}</h1>
+            </div>
         `;
         $("#cont").empty();
         $("#cont").append(reloj);
@@ -234,5 +232,5 @@ $(document).ready(function(){
        }
    }
 
-   
+// ----------------------------------------------------------------------------------------------------------------------
 })

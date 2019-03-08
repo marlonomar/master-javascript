@@ -259,3 +259,13 @@ div.tema img {
     box-shadow: 0px 0px 5px #c6c6c6;
     margin-bottom: 10px;
 }
+
+@font-face{
+    font-family: digital;
+    src: url(digital.TTF)
+}
+
+div#reloj_digital h1{
+    font-family: digital;
+    font-size: 75px;
+}
