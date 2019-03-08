@@ -193,11 +193,18 @@ $(document).ready(function(){
             acordeon()
        })
 
-       $("#nav ul li").eq(1).click(function(){
-        $("#contenido,#slider,#acordeon").hide();
-            setInterval(() => {
+       
+
+       $("#nav ul li").click(function(){
+           let li = $(this).text();
+           
+           if(li == 'RELOJ'){
+            intervalo = setInterval(() => {
                 reloj() 
-            },1000);
+                },1000);
+            }else{
+                clearInterval(intervalo)
+            }
         })
 
        
@@ -210,17 +217,20 @@ $(document).ready(function(){
 
        
        function reloj(){
-            let data = new Date;
-            let hora = data.getHours();
-            let minutos = data.getMinutes();
-            let segundos = data.getSeconds();
-            console.log(hora+minutos+segundos)
 
-            var reloj =`
-                <h1>${hora} : ${minutos} :${segundos}</h1>
-            `;
-            $("#cont").empty();
-            $("#cont").append(reloj);
+           
+        let data = new Date;
+        let hora = data.getHours();
+        let minutos = data.getMinutes();
+        let segundos = data.getSeconds();
+
+        var reloj =`
+            <h1>${hora} : ${minutos} :${segundos}</h1>
+        `;
+        $("#cont").empty();
+        $("#cont").append(reloj);
+            
+
        }
    }
 
