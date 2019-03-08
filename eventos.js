@@ -256,6 +256,13 @@ $(document).ready(function(){
         if(li == 'INICIO'){
             location.reload();
         }
+        if(li == 'SOBRE MI'){
+            sobreMi()
+         }
+         if(li == 'REGISTRO'){
+             $("#cont").empty();
+             registro()
+         }
         if(li == 'RELOJ'){
             intervalo = setInterval(() => {
              reloj() 
@@ -263,13 +270,7 @@ $(document).ready(function(){
          }else{
             clearInterval(intervalo)
          }
-         if(li == 'SOBRE MI'){
-            sobreMi()
-         }
-         if(li == 'REGISTRO'){
-             $("#cont").empty();
-             registro()
-         }
+         
      })
    }
    //ficha de registro
@@ -301,6 +302,8 @@ $(document).ready(function(){
             $("#formulario_registro").append("<img class='ficha_avatar'src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSioCg7de-8aJQjmWHd5xVtioOHjI1DKU7-3Mh0WpbA6h6WEej2BQ'>");
            }if(sexo =="mujer"){
             $("#formulario_registro").append("<img class='ficha_avatar'src='https://cdn.pixabay.com/photo/2014/04/02/14/10/female-306407__340.png'>");   
+           }if(sexo=='null'){
+               alert("ingrese su sexo")
            }
 
        })
