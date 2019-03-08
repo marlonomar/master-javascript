@@ -160,23 +160,6 @@ $(document).ready(function(){
    //navegador
    nav ()
    function nav (){
-
-    $("#nav ul li").click(function(){
-        let li = $(this).text();
-        if(li == 'INICIO'){
-            location.reload();
-        }
-        if(li == 'RELOJ'){
-         intervalo = setInterval(() => {
-             reloj() 
-             },1000);
-         }else{
-             clearInterval(intervalo)
-         }
-         if(li == 'SOBRE MI'){
-            sobreMi()
-         }
-     })
        function sobreMi(){
         $("#contenido,#slider").hide();
         var texto = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation"
@@ -235,6 +218,46 @@ $(document).ready(function(){
             
 
        }
+       function registro(){
+         var regis = `
+           <div id="formulario_registro">
+                <h2>Formulario de Registro</h2>
+                <input class="form-control" type="text" placeholder="ingrese su nombre" id="name">
+                <input class="form-control" type="text" placeholder="ingrese su apellido" id="apellido">
+                <input class="form-control" type="text" placeholder="ingrese su CPF" id="cpf">
+                <input class="form-control" type="email" placeholder="ingrese su email" id="mail">
+                <input class="form-control" type="password" placeholder="cree una contrasena" id="key">
+                <input class="form-control" type="number" placeholder="ingrese su edad" id="edad">
+                <select class="form-control">
+                <option value="null">Sexo</option>
+                <option value="nombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+                </select>
+                <button class="btn" id="btn-form">Registrar</button>
+           </div>
+         `;
+         $("#cont").append(regis);
+       }
+       $("#nav ul li").click(function(){
+        let li = $(this).text();
+        if(li == 'INICIO'){
+            location.reload();
+        }
+        if(li == 'RELOJ'){
+            intervalo = setInterval(() => {
+             reloj() 
+             },1000);
+         }else{
+            clearInterval(intervalo)
+         }
+         if(li == 'SOBRE MI'){
+            sobreMi()
+         }
+         if(li == 'REGISTRO'){
+             $("#cont").empty();
+             registro()
+         }
+     })
    }
 
 // ----------------------------------------------------------------------------------------------------------------------
