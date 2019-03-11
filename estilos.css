@@ -5,6 +5,9 @@
     list-style: none;
 }
 
+body{
+    background: #c6c6c6;
+}
 
 .clearfix{
     float: none;

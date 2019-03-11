@@ -124,7 +124,6 @@ $(document).ready(function(){
                 $("#themes").attr("href","pink.css");
             }
             var theme = $("#themes").attr('href');
-            console.log(theme)
             localStorage.setItem('colorTheme',theme)
        });
        var color =localStorage.getItem('colorTheme');
@@ -146,29 +145,32 @@ $(document).ready(function(){
    function login(){
        
        $("input[type='submit'].btn").on('click',function(){
+        
         let email = $("#email").val();
         let clave = $("#clave").val();
         let usuario = localStorage.getItem('mail');
         let key = localStorage.getItem('key');
         let nombre = localStorage.getItem('name');
-
+        function cerrar_sesion(){
+            $("#cerrar").on('click',function(){
+                localStorage.clear();
+                location.reload();
+            })
+        }
         if(email == usuario && clave == key){
         $("div#about p").hide();
         $("div.formulario").hide();
         $("div#about").append("<button class='btn' id='cerrar'>cerrar sesion</button><br><h2>bienvenido:"+nombre+"</h2>");
-        }else{
+        cerrar_sesion()
+        }
+        else{
             alert("email o contrasena equivocados")
         }
        })
        
+       
    }
-   cerrar_sesion()
-   function cerrar_sesion(){
-    $("button#cerrar").on('click',function(){
-        localStorage.clear();
-        location.reload();
-    })
-   }
+   
    //navegador
    nav ()
    function nav (){
@@ -260,8 +262,8 @@ $(document).ready(function(){
             sobreMi()
          }
          if(li == 'REGISTRO'){
-             $("#cont").empty();
-             registro()
+                $("#cont").empty();
+                registro() 
          }
         if(li == 'RELOJ'){
             intervalo = setInterval(() => {
@@ -284,17 +286,22 @@ $(document).ready(function(){
            var mail = $("#mail").val();
            var key = $("#key").val();
            localStorage.setItem('name',nombre);
+           localStorage.setItem('apellido',apellido);
+           localStorage.setItem('cpf',cpf);
+           localStorage.setItem('edad',edad);
            localStorage.setItem('mail',mail);
            localStorage.setItem('key',key);
            localStorage.setItem('sexo',sexo);
            $("#formulario_registro").empty();
            var ficha = `
+                <div id="ficha_registro">
                 <h2 id='ficha'>Ficha de Registro</h2>
                 <h3 id='ficha_name'>Nombre: ${nombre}</h3>
                 <h3 id='ficha_apellido'>Apellido: ${apellido}</h3>
                 <h3 id='ficha_cpf'>CPF: ${cpf}</h3>
                 <h3 id='ficha_edad'>Edad: ${edad}</h3>
                 <h3 id='ficha_sexo'>Sexo: ${sexo}</h3>
+                </div>
            `;
            $("#formulario_registro").append("<img src='carnet.jpg' id='carnet'>");
            $("#formulario_registro").append(ficha)
