@@ -265,7 +265,11 @@ $(document).ready(function(){
             sobreMi()
          }
          if(li == 'REGISTRO'){
-            registro() 
+             var cpf =localStorage.getItem('cpf')
+            registro()
+            if(cpf != null){
+                carnet();
+            }
          }
         if(li == 'RELOJ'){
             intervalo = setInterval(() => {
