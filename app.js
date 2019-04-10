@@ -23,12 +23,16 @@ hbs.registerPartials(__dirname + '/views/parciales');
 //PAGINAS=======================================================================================
 
 let render = (data)=>{
-    app.get(`${data}`,(req,res)=>{
+    app.get(`/${data}`,(req,res)=>{
         res.render(`${data}`);
     });
 }
 
-render('');
+render('reloj');
+render('registro');
+render('sobreMi');
+
+
 
 //SERVIDOR=======================================================================================
 app.listen(3000,()=>{

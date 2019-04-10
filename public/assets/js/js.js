@@ -158,6 +158,7 @@ let login=()=>{
 }
 
 
+
 ocultar_slide();
 agregar_icono();
 pagination_auto();
