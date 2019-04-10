@@ -91,12 +91,34 @@ let post =()=>{
     artic('otono');
     artic('primavera');
 }
+   
+let theme =()=>{
 
+    $("div.temas div.tema").on('click',function(){
+         let tema= $(this);
+         
+         let cambioTema = (estacion,color)=>{
+            if(tema.hasClass(estacion)){
+                $("#themes").attr("href",`assets/css/${color}.css`);
+            }
+         }
+
+         cambioTema('invierno','blue');
+         cambioTema('verano','green');
+         cambioTema('otono','red');
+         cambioTema('primavera','pink');
+
+         let theme = $("#themes").attr('href');
+         localStorage.setItem('colorTheme',theme)
+    });
+    let color =localStorage.getItem('colorTheme');
+    $("#themes").attr("href",color);
+}
 
 ocultar_slide();
 agregar_icono();
 pagination_auto();
 pagination();
 post ();
-
+theme();
  });
