@@ -2,12 +2,8 @@
  * LOGICA DE PROGRAMACION 
  */
 
- $(document).ready(function(){
-//inicio del programa=============================================================================    
-
-//ocultar sliders-----------------------------------------
-   
- let ocultar_slide= () =>{
+$(document).ready(function(){
+let ocultar_slide= () =>{
     let foto = localStorage.getItem("colorTheme");
     console.log(foto)
     $("li.slider").hide();
@@ -15,14 +11,13 @@
    
 }
 
-//iconos de paginacion------------------------------------
 let agregar_icono =()=>{
     var circulos = $("#slider ul li img").length;
     for(i=1;i<=circulos;i++){
          $('ol.pagination').append("<li><div class='circulos' index="+[i]+"></div></li>")
     }
 }
-//paginacion automatica------------------------------------
+
 let pagination_auto=()=>{
     let imgItems = $("li div.circulos").length;
     let imgPos =1;
@@ -31,7 +26,7 @@ let pagination_auto=()=>{
          imgPos--
         if(imgPos < 1){
          imgPos = imgItems;
-          }
+        }
           
          $("li.slider").hide();
          $("li.slider:nth-child("+imgPos+")").fadeIn();
@@ -52,15 +47,14 @@ let pagination_auto=()=>{
 
     $("div.right").on('click',()=>{
      slide()
-     })
+    })
 
      setInterval(() => {
          slide()
-     }, 5000);
+    }, 5000);
  
 }
-//paginacion manual----------------------------------------
-   
+
 let pagination=()=>{
     $(" li div.circulos").click(function(){
         var pos = $(this).attr('index');
@@ -69,11 +63,40 @@ let pagination=()=>{
         $("li div.circulos").removeClass('active_li')
         $(this).addClass('active_li');
    });
-   }
-//funciones======================================================================================
+}
+ 
+let post =()=>{
+    let artic = (titulo)=>{
+
+            let datos = {
+            title:titulo,
+            data: new Date(),
+            text :"El invierno es una de las cuatro estaciones de clima templado. Sigue al otoño y precede a la primavera. Esta estación se caracteriza por días más cortos, noches más largas y temperaturas más bajas a medida que nos alejamos del Ecuador"
+            }
+        
+            var posts = `
+            <article class="post">
+            <h2>${datos.title}</h2>
+            <span class="date">${datos.data}</span>
+            <p>${datos.text}</p>
+            <a href="#" class="btn btn-sm">leer mas</a>
+            </article>
+            `;
+     
+            $("#post").append(posts);
+            
+    }
+    artic('invierno');
+    artic('verano');
+    artic('otono');
+    artic('primavera');
+}
+
+
 ocultar_slide();
 agregar_icono();
 pagination_auto();
 pagination();
-//fin de programa=================================================================================
+post ();
+
  });
