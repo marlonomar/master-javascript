@@ -114,6 +114,49 @@ let theme =()=>{
     let color =localStorage.getItem('colorTheme');
     $("#themes").attr("href",color);
 }
+ 
+let subir=()=>{
+    $(".subir").on('click',function(){
+        event.preventDefault();
+        $("html,body").animate({
+             scrollTop: 0
+        },1000);
+        return false;
+    })
+}
+  
+let login=()=>{
+       
+    $("input[type='submit'].btn").on('click',function(){
+     
+     let email = $("#email").val();
+     let clave = $("#clave").val();
+     let usuario = localStorage.getItem('mail');
+     let key = localStorage.getItem('key');
+     let nombre = localStorage.getItem('name');
+
+     let cerrar_sesion=()=>{
+         $("#cerrar").on('click',function(){
+             localStorage.clear();
+             location.reload();
+         })
+     }
+
+     if(email == usuario && clave == key){
+        $("div#about p").hide();
+        $("div.formulario").hide();
+        $("div#about").append("<h2>bienvenido:"+nombre+"</h2>")
+        $("div#about").append("<button class='btn' id='cerrar'>cerrar sesion</button><br>");
+        cerrar_sesion()
+     }
+     else{
+         alert("email o contrasena equivocados")
+     }
+    })
+    
+    
+}
+
 
 ocultar_slide();
 agregar_icono();
@@ -121,4 +164,6 @@ pagination_auto();
 pagination();
 post ();
 theme();
+subir();
+login();
  });
