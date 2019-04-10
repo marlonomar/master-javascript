@@ -1,19 +1,30 @@
 $(document).ready(function(){
-    //ocultar sliders
+    //funciones ----------------------------------------------
     ocultar_slide()
-    function ocultar_slide(){
+    agregar_icono()
+    pagination()
+    post ()
+    theme()
+    subir()
+    login()
+    nav ()
+
+    //ocultar sliders-----------------------------------------
+   
+   function ocultar_slide(){
+        let foto = localStorage.getItem("colorTheme");
+        console.log(foto)
         $("li.slider").hide();
         $("li.slider:nth-child(1)").show();
     }
-    //iconos de paginacion
-    agregar_icono()
+    //iconos de paginacion------------------------------------
    function agregar_icono(){
         var circulos = $("#slider ul li img").length;
         for(i=1;i<=circulos;i++){
              $('ol.pagination').append("<li><div class='circulos' index="+[i]+"></div></li>")
         }
    }
-   //paginacion automatica
+   //paginacion automatica------------------------------------
    pagination_auto()
    function pagination_auto(){
        let imgItems = $("li div.circulos").length;
@@ -31,7 +42,7 @@ $(document).ready(function(){
             $("li div.circulos").eq(imgPos -1).addClass('active_li');
        })
 
-       function slide(){
+       var slide=()=>{
         imgPos++
         if(imgPos > imgItems){
             imgPos =1;
@@ -48,11 +59,11 @@ $(document).ready(function(){
 
         setInterval(() => {
             slide()
-        }, 50000);
+        }, 5000);
     
    }
-  //paginacion manual
-   pagination()
+   //paginacion manual----------------------------------------
+   
    function pagination(){
     $(" li div.circulos").click(function(){
         var pos = $(this).attr('index');
@@ -62,33 +73,30 @@ $(document).ready(function(){
         $(this).addClass('active_li');
    });
    }
-   //informacion en json
-   post ()
+   //informacion en json--------------------------------------
+   
    function post (){
     var post =[
         {
-            title:'prueba de titulo',
+            title:'Inverno',
             data: new Date(),
-            text :"Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit  esse cillum dolore eu fugiat nulla pariatur. Excepteur sintoccaecat cupidatat non proident, sunt in culpa qui officiadeserunt mollit anim id est laborum."
-            
+            text :"El invierno es una de las cuatro estaciones de clima templado. Sigue al otoño y precede a la primavera. Esta estación se caracteriza por días más cortos, noches más largas y temperaturas más bajas a medida que nos alejamos del Ecuador"
         },
         {
-         title:'prueba de titulo 1',
+         title:'Primavera',
          data: new Date(),
-         text :"Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit  esse cillum dolore eu fugiat nulla pariatur. Excepteur sintoccaecat cupidatat non proident, sunt in culpa qui officiadeserunt mollit anim id est laborum."
+         text :"La primavera es una de las cuatro estaciones de las zonas templadas del planeta Tierra, sigue al invierno y precede al verano. El término prima proviene de «primer» y vera de «verdor». Astronómicamente, esta estación comienza con el equinoccio de primavera, y termina con el solsticio de verano"
+     },
+     {
+         title:'Verano',
+         data: new Date(),
+         text :"Estación del año comprendida entre la primavera y el otoño; en el hemisferio norte, se sitúa aproximadamente entre el 21 de junio, solsticio de verano, y el 21 de septiembre, equinoccio de otoño, y en el hemisferio sur entre el 21 de diciembre y el 21 de marzo"
          
      },
      {
-         title:'prueba de titulo 2',
+         title:'Otono',
          data: new Date(),
-         text :"Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit  esse cillum dolore eu fugiat nulla pariatur. Excepteur sintoccaecat cupidatat non proident, sunt in culpa qui officiadeserunt mollit anim id est laborum."
-         
-     },
-     {
-         title:'prueba de titulo 3',
-         data: new Date(),
-         text :"Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit  esse cillum dolore eu fugiat nulla pariatur. Excepteur sintoccaecat cupidatat non proident, sunt in culpa qui officiadeserunt mollit anim id est laborum."
-         
+         text :"El otoño​ es una de las cuatro estaciones del año y una de las dos de la zona intertropical. Sigue al verano y precede al invierno. Astronómicamente, comienza con el equinoccio de otoño y termina con el solsticio de invierno.​"
      },
     ];
     //agregar articulos
@@ -105,8 +113,8 @@ $(document).ready(function(){
         $("#post").append(posts);
     })
    }
-   //cambiar tema
-   theme()
+   //cambiar tema---------------------------------------------
+   
    function theme(){
 
        $("div.temas div.tema").on('click',function(){
@@ -129,8 +137,8 @@ $(document).ready(function(){
        var color =localStorage.getItem('colorTheme');
        $("#themes").attr("href",color);
    }
-   // scroll
-   subir()
+   // scroll--------------------------------------------------
+   
    function subir(){
        $(".subir").on('click',function(){
            event.preventDefault();
@@ -140,8 +148,8 @@ $(document).ready(function(){
            return false;
        })
    }
-   //login
-   login()
+   //login----------------------------------------------------
+   
    function login(){
        
        $("input[type='submit'].btn").on('click',function(){
@@ -160,7 +168,8 @@ $(document).ready(function(){
         if(email == usuario && clave == key){
         $("div#about p").hide();
         $("div.formulario").hide();
-        $("div#about").append("<button class='btn' id='cerrar'>cerrar sesion</button><br><h2>bienvenido:"+nombre+"</h2>");
+        $("div#about").append("<h2>bienvenido:"+nombre+"</h2>")
+        $("div#about").append("<button class='btn' id='cerrar'>cerrar sesion</button><br>");
         cerrar_sesion()
         }
         else{
@@ -170,9 +179,8 @@ $(document).ready(function(){
        
        
    }
+   //navegador------------------------------------------------
    
-   //navegador
-   nav ()
    function nav (){
        function sobreMi(){
         $("#contenido,#slider").hide();
@@ -202,7 +210,7 @@ $(document).ready(function(){
         function acordeon(){
             $("#acordeon div").hide()
             $("#acordeon h3").on('click',function(){
-                 $(this).siblings("div").toggle('slow')
+                 $(this).siblings().toggle('slow')
             })
        }
         $("#cont").empty();
@@ -260,11 +268,14 @@ $(document).ready(function(){
         let li = $(this).text();
         if(li == 'INICIO'){
             location.reload();
+            
         }
         if(li == 'SOBRE MI'){
             sobreMi()
+            $("#logo > h1").text(li)
          }
          if(li == 'REGISTRO'){
+            $("#logo > h1").text(li)
              var cpf =localStorage.getItem('cpf')
             registro()
             if(cpf != null){
@@ -272,6 +283,7 @@ $(document).ready(function(){
             }
          }
         if(li == 'RELOJ'){
+            $("#logo > h1").text(li)
             intervalo = setInterval(() => {
              reloj() 
              },1000);
@@ -281,8 +293,7 @@ $(document).ready(function(){
          
      })
    }
-
-   //ficha de registro
+   //ficha de registro----------------------------------------
    function ficha_registro(){
        $("button#btn_form").on('click',function(){
         var nombre = $("#name").val();
@@ -302,6 +313,7 @@ $(document).ready(function(){
         carnet();
        })
    }
+   //carnet---------------------------------------------------
    function carnet(){
     $("#formulario_registro").empty();
     var nombre = localStorage.getItem('name');
@@ -330,5 +342,5 @@ $(document).ready(function(){
         alert("ingrese su sexo")
     }
    }
-// ----------------------------------------------------------------------------------------------------------------------
+// -----------------------------------------------------------
 })

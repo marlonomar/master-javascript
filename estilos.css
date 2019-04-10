@@ -9,12 +9,26 @@ body{
     background: #c6c6c6;
 }
 
+#logo{
+    background: #c6c6c6;
+}
+#logo h1{
+    position: relative;
+    top: 13px;
+}
 .clearfix{
     float: none;
     clear: both;
+}.btn{
+    background:#c6c6c6;
+}
+#nav ul li:hover{
+    background:#c6c6c6;
 }
 
-
+li div.circulos:hover{
+    background:#757575;
+}
 #global{
     width: 65%;
     background: white;
@@ -290,9 +304,12 @@ div#formulario_registro input{
     display: block;
     
 }
+#acordeon h3{
+    background: #c6c6c6;
+}
 div#formulario_registro{
     position: relative;;
-    top:36px;
+    top:10px;
     left:11%;
     width: 80%;
     box-shadow: 0px 0px 15px #c6c6c6;

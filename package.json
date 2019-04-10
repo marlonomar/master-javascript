@@ -1,0 +1,23 @@
+{
+  "name": "proyecto-master",
+  "version": "1.0.0",
+  "description": "modificar un  site html a uno con node js ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marlonomar/master-javascript.git"
+  },
+  "author": "Marlon Guerrero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marlonomar/master-javascript/issues"
+  },
+  "homepage": "https://github.com/marlonomar/master-javascript#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "hbs": "^4.0.3"
+  }
+}
