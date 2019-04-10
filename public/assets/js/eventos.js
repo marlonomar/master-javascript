@@ -262,37 +262,8 @@ $(document).ready(function(){
          `;
          $("#cont").append(regis);
          ficha_registro()
-       }
+    }
 
-    $("#nav ul li").click(function(){
-        let li = $(this).text();
-        if(li == 'INICIO'){
-            location.reload();
-            
-        }
-        if(li == 'SOBRE MI'){
-            sobreMi()
-            $("#logo > h1").text(li)
-         }
-         if(li == 'REGISTRO'){
-            $("#logo > h1").text(li)
-             var cpf =localStorage.getItem('cpf')
-            registro()
-            if(cpf != null){
-                carnet();
-            }
-         }
-        if(li == 'RELOJ'){
-            $("#logo > h1").text(li)
-            intervalo = setInterval(() => {
-             reloj() 
-             },1000);
-         }else{
-            clearInterval(intervalo)
-         }
-         
-     })
-   }
    //ficha de registro----------------------------------------
    function ficha_registro(){
        $("button#btn_form").on('click',function(){

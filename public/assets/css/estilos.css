@@ -279,7 +279,7 @@ div.tema img {
 
 @font-face{
     font-family: digital;
-    src: url(digital.TTF)
+    src: url(./digital.TTF)
 }
 
 div#reloj_digital h1{
@@ -352,7 +352,7 @@ div#formulario_registro h3{
 
 .ficha_avatar{
     position: relative;
-    top:-485px;
+    top:-434px;
     left:17px;
     width: 171px;
     height:210px;
