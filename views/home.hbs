@@ -1,0 +1,75 @@
+{{> head }}
+
+{{> theme }}
+
+    <div class="">
+        <section id="global">
+            
+{{> nav }}
+
+            <div id='cont'>
+                <!--SLIDER-->
+                <div id="slider">
+                    <ul>
+                        <li class="slider">
+                            <div class="caption">
+                                <h3 class="epoca">Invierno</h3>
+                                <img src="assets/img/invierno.jpg" alt="invierno">
+                            </div>
+                       </li>
+                       <li class="slider">
+                            <div class="caption">
+                                <h3 class="epoca">Verano</h3>
+                                <img src="assets/img/verano.jpg" alt="invierno">
+                            </div>
+                       </li>
+                       <li class="slider">
+                            <div class="caption">
+                                <h3 class="epoca">Primavera</h3>
+                                <img src="assets/img/primavera.jpg" alt="invierno">
+                            </div>
+                       </li>
+                       <li class="slider">
+                            <div class="caption">
+                                <h3 class="epoca">Otono</h3>
+                                <img src="assets/img/otono.jpg" alt="invierno">
+                            </div>
+                       </li>
+                    </ul>
+                    <ol class="pagination">
+                    </ol>
+                   
+                        <div class="left">
+                                <div class="fa fa-chevron-left"></div>
+                            </div>
+                            <div class="right">
+                                <div class="fa fa-chevron-right"></div>
+                        </div>
+                   
+                </div> 
+                <br>
+                <!--contenido-->
+                <section id="contenido">
+                        <div id="post">
+                           
+                        </div>
+                        <aside id="sidebar">
+                            <div id="about">
+                                <h4>quien soy</h4>
+                                <img src="assets/img/user.jpg" alt="">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                    sed do eiusmod tempor incididunt ut labore et dolore magna 
+                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                            </div>
+                            <div class="formulario">
+                                <h4>Iniciar Sesion</h4>
+                                <input type="email" name="email" id="email" placeholder="ingrese su email" class="form-control">
+                                <input type="password" name="clave" id="clave" placeholder="ingrese su clave" class="form-control">
+                                <input type="submit" value="submit" class="btn">
+                            </div>
+                        </aside>
+                        <div class="clearfix"></div>
+                </section>
+            </div>
+        </section>
+       {{> footer }}

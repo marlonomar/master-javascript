@@ -120,16 +120,16 @@ $(document).ready(function(){
        $("div.temas div.tema").on('click',function(){
             let tema= $(this);
             if(tema.hasClass('invierno')){
-                $("#themes").attr("href","blue.css");
+                $("#themes").attr("href","assets/css/blue.css");
             }
             if(tema.hasClass('otono')){
-                $("#themes").attr("href","red.css");
+                $("#themes").attr("href","assets/css/red.css");
             }
             if(tema.hasClass('verano')){
-                $("#themes").attr("href","green.css");
+                $("#themes").attr("href","assets/css/green.css");
             }
             if(tema.hasClass('primavera')){
-                $("#themes").attr("href","pink.css");
+                $("#themes").attr("href","assets/css/pink.css");
             }
             var theme = $("#themes").attr('href');
             localStorage.setItem('colorTheme',theme)
