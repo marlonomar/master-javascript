@@ -5,7 +5,6 @@
 $(document).ready(function(){
 let ocultar_slide= () =>{
     let foto = localStorage.getItem("colorTheme");
-    console.log(foto)
     $("li.slider").hide();
     $("li.slider:nth-child(1)").show();
    
