@@ -14,13 +14,24 @@ app.use(express.static((__dirname + '/public')));
 
 app.set('view engine', 'hbs');
 
-app.get('/',(req,res)=>{
-    res.render('home');
-});
+
 
 hbs.registerPartials(__dirname + '/views/parciales');
-
+//DATOS PAGINAS ================================================================================
+    let datosHome = {
+        estacion1: 'NIEVE',
+        estacion2: 'SOL',
+        estacion3: 'FLORES',
+        estacion4: 'CALABAZAS',
+        tituloSidebar:'registrese gratis',
+        textoSidebar: 'ven a registrarte en nuestro site',
+        sesion: 'Inicia sesion'
+    }
 //PAGINAS=======================================================================================
+
+app.get('/',(req,res)=>{
+    res.render('home',datosHome);
+});
 
 let render = (data)=>{
     app.get(`/${data}`,(req,res)=>{

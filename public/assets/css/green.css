@@ -12,7 +12,9 @@ body{
 #nav ul li:hover{
     background: #235e3d;
 }
-
+div#reloj_digital h1{
+    color: #235e3d;
+}
 li div.circulos:hover{
     background: #235e3d;
 }

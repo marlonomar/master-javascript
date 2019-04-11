@@ -16,7 +16,9 @@ body{
 li div.circulos:hover{
     background: #870E0E;
 }
-
+div#reloj_digital h1{
+    color: #870E0E;
+}
 .btn{
     background: #870E0E;
     color: white;

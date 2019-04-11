@@ -9,6 +9,9 @@ body{
     
 }
 
+div#reloj_digital h1{
+    color: #006997;
+}
 #nav ul li:hover{
     background: #006997;
 }
