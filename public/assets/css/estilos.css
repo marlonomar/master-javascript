@@ -1,4 +1,4 @@
-html{
+*{
     margin: 0px;
     padding: 0px;
     list-style: none;
@@ -11,10 +11,7 @@ body{
 #logo{
     background: #c6c6c6;
 }
-#logo h1{
-    position: relative;
-    top: 13px;
-}
+
 .clearfix{
     float: none;
     clear: both;
@@ -29,15 +26,8 @@ li div.circulos:hover{
     background:#757575;
 }
 #global{
-    width: 65%;
     background: white;
-    margin: 0px auto;
-    margin-top: 30px;
-    padding: 20px;
     box-shadow: 0px 0px 15px black;
-    min-height:1000px;
-    
-
 }
 
 #logo{
@@ -46,23 +36,16 @@ li div.circulos:hover{
     letter-spacing: 3px;
     color:white;
     text-align: center;
-    width: 390px;
-    height: 75px;
-    float: left;
-    margin-bottom: 30px;
-    line-height: 80px;
 }
 
 #nav{
     font-family: Arial, Helvetica, sans-serif;
-    background: #333;
-    width: 100%;
-    margin-bottom: 20px;
-    
+    background: #333; 
 }
 
 #nav ul{
     line-height: 46px;
+    margin-bottom: 0px;
 
 }
 
@@ -84,7 +67,6 @@ li div.circulos:hover{
 }
 
 #post{
-    width: 60%;
     float: left;
     font-family: Arial, Helvetica, sans-serif;
 
@@ -113,8 +95,6 @@ li div.circulos:hover{
 
 #sidebar{
     font-family: Arial, Helvetica, sans-serif;
-    width: 31%;
-    float: right;
 
 }
 
@@ -151,10 +131,6 @@ footer{
     text-align: center;
 }
 
-#slider{
-    width: 100%;
-    
-}
 
 #slider img {
     width: 100%;
