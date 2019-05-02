@@ -63,5 +63,9 @@
     .header #logo {
         grid-column: span 2;
     }
+
+    #global{
+        width: 80%;
+    }
     
 }
